@@ -1,24 +1,5 @@
 #!/usr/bin/env bash
 
-set -e            # fail fast
-set -o pipefail   # don't ignore exit codes when piping output
-
-# Configure directories
-build_dir=$1
-cache_dir=$2
-env_dir=$3
-
-blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
-if [ -d "$env_dir" ]; then
-  for e in $(ls $env_dir); do
-    echo "$e" | grep -qvE "$blacklist_regex" &&
-      export "$e=$(cat $env_dir/$e)"
-    :
-  done
-fi
-
-cp $1/Procfile $1/mustang/
-
 ./python/bin/compile "$1/voodoo3" "$2/voodoo3" "$3/voodoo3" && \
-  ./nodejs/bin/compile "$1/mustang" "$2/mustang" "$3/mustang" && \
-  ./ruby/bin/compile "$1/mustang" "$2/mustang" "$3/mustang"
+  ./nodejs/bin/compile $1 $2 $3 && \
+  ./ruby/bin/compile $1 $2 $3
