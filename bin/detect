@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./ruby/bin/detect "$1/mustang"
