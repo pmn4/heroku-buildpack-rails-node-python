@@ -17,6 +17,8 @@ if [ -d "$env_dir" ]; then
   done
 fi
 
+cp $1/Procfile $1/mustang/
+
 ./python/bin/compile "$1/voodoo3" "$2/voodoo3" "$3/voodoo3" && \
   ./nodejs/bin/compile "$1/mustang" "$2/mustang" "$3/mustang" && \
   ./ruby/bin/compile "$1/mustang" "$2/mustang" "$3/mustang"
