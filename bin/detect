@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./ruby/bin/detect "$1/mustang"
+./python/bin/detect "$1/voodoo3" && ./nodejs/bin/detect "$1/mustang" && ./ruby/bin/detect "$1/mustang"

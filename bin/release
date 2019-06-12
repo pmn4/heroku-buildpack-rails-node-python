@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./ruby/bin/release "$1/mustang"
