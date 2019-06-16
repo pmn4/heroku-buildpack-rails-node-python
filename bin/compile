@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-./python/bin/compile "$1/voodoo3" "$2/voodoo3" "$3/voodoo3" && \
+./python/bin/compile $1 $2 $3 && \
   ./nodejs/bin/compile $1 $2 $3 && \
   ./ruby/bin/compile $1 $2 $3
