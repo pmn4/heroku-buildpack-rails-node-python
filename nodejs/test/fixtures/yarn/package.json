@@ -7,7 +7,7 @@
     "yarn": "1.x"
   },
   "dependencies": {
-    "lodash": "^4.16.4"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "debug": "^4.1.1"
