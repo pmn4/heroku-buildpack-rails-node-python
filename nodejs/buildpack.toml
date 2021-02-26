@@ -3,9 +3,10 @@ name = "Node.js"
 
   [publish.Ignore]
   files = [
-      "etc/",
-      "test/",
+      ".circle/",
       ".github/",
-      ".travis.yml",
+      "etc/",
+      "spec/",
+      "test/",
       "makefile"
   ]
