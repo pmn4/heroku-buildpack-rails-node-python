@@ -53,7 +53,9 @@ if [ ! "$SKIP_PIP_INSTALL" ]; then
         exit 1
     fi
 
-    /app/.heroku/python/bin/pip install -r "$BUILD_DIR/requirements.txt" --exists-action=w --src=/app/.heroku/src --disable-pip-version-check --no-cache-dir 2>&1 | tee "$WARNINGS_LOG" | cleanup | indent
+    # in order to avoid some pip installation order issues (:eyes: numpy/scs),
+    # let's install each item in requirements.txt one by one
+    xargs -L 1 /app/.heroku/python/bin/pip install --exists-action=w --src=/app/.heroku/src --disable-pip-version-check --no-cache-dir < "$BUILD_DIR/requirements.txt" 2>&1 | tee "$WARNINGS_LOG" | cleanup | indent
     PIP_STATUS="${PIPESTATUS[0]}"
     set -e
 
